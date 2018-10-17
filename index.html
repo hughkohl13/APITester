@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Favorite Movies</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light underline-header">
+        <div class="d-flex flex-grow-1">
+            <!-- <span class="w-100 d-lg-none d-block"> hidden spacer to center brand on mobile</span>
+            <a class="navbar-brand d-none d-lg-inline-block" href="#">
+                Hugh Kohl
+            </a> -->
+            <div class="page-header">
+                    <div class="navbar-brand d-none d-lg-inline-block" href="#">
+                            Hugh Kohl
+                    </div>
+            </div>
+            <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
+                <img src="//placehold.it/40?text=LOGO" alt="logo">
+            </a>
+            <div class="w-100 text-right">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+                <li class="nav-item">
+                    <a href="About.html" class="nav-link m-2 menu-item nav-active">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="portfolio.html" class="nav-link m-2 menu-item">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Contact.html" class="nav-link m-2 menu-item">Contact</a>
+                </li>
+            </ul>
+        </div>
+</nav>
+
+<body>
+    <div class="section">
+            <h1 class="underline-header" >Contact</h1>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputName1">Name</label>
+                    <input type="name" class="form-control" id="exampleInputName1" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Message</label>
+                    <input type="message" class="form-control" id="exampleInputMessage" placeholder="Enter text here">
+                </div>
+                <button type="submit" class="button" class="btn btn-default" >Submit</button>
+            </form>
+    </div>
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // The below code fills in the first row of the table
+    var movie = "Mr. Nobody"; // user input
+    var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+        console.log(response);
+        $('table tbody').append("<tr><td>"+response.Title+"</td><td>"+response.Year+"</td> <td>"+response.Actors+"</td></tr>");
+    });
+
+    $.ajax({
+      url: queryURL2,
+      method: "GET"
+    }).then(function(response) {
+        console.log(response);
+        $('table tbody').append("<tr><td>"+response.Title+"</td><td>"+response.Year+"</td> <td>"+response.Actors+"</td></tr>");
+    });
+
+    $.ajax({
+      url: queryURL3,
+      method: "GET"
+    }).then(function(response) {
+        console.log(response);
+        $('table tbody').append("<tr><td>"+response.Title+"</td><td>"+response.Year+"</td> <td>"+response.Actors+"</td></tr>");
+    });
+
+    // var tRow = $("<tr>");
+    
+    // var titleTd = $("<td>").text(response.Title);
+    // var yearId = $("<td>").text(response.Year);
+    // var actorsTd = $("<td>").text(response.Actors);
+
+    // tRow.append(titleTd, yearId, actorsTd);
+
+    // });
+
+  </script>
+</body>
+
+</html>
